@@ -1,39 +1,39 @@
 {
   "project_info": {
-    "project_number": "661034144907",
-    "firebase_url": "https://fastrack-c4d13.firebaseio.com",
-    "project_id": "fastrack-c4d13",
-    "storage_bucket": "fastrack-c4d13.appspot.com"
+    "project_number": "34565269743",
+    "firebase_url": "https://fastpath-cf46c.firebaseio.com",
+    "project_id": "fastpath-cf46c",
+    "storage_bucket": "fastpath-cf46c.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:661034144907:android:8f02e58b86a53c8f",
+        "mobilesdk_app_id": "1:34565269743:android:d38e18d039c4e51c",
         "android_client_info": {
           "package_name": "com.example.dimple.fastpath"
         }
       },
       "oauth_client": [
         {
-          "client_id": "661034144907-vkg1nr1ilmsuvmnq3909qcb7ck4eb6kn.apps.googleusercontent.com",
+          "client_id": "34565269743-ro4q9em5b7u90i0jm59mc7ha0dcceq7f.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.dimple.fastpath",
-            "certificate_hash": "92b93b275de7b094a7cdfeaae9d135754dfb8a3d"
+            "certificate_hash": "8e24e4f3c198017dc92591b91bd801f081f2694b"
           }
         },
         {
-          "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+          "client_id": "34565269743-cq7rnbrtmuii8ufge79u3tebdgrlte51.apps.googleusercontent.com",
           "client_type": 3
         },
         {
-          "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+          "client_id": "34565269743-cq7rnbrtmuii8ufge79u3tebdgrlte51.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBg_tUwnoZD6Clzxw-3QMy2Mipk6EDW9As"
+          "current_key": "AIzaSyBTNdpY00gu69ih6Ile15DRbZ6hpY9Z7Uo"
         }
       ],
       "services": {
@@ -44,7 +44,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+              "client_id": "34565269743-cq7rnbrtmuii8ufge79u3tebdgrlte51.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
