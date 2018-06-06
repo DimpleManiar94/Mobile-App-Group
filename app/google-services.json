@@ -1,0 +1,59 @@
+{
+  "project_info": {
+    "project_number": "661034144907",
+    "firebase_url": "https://fastrack-c4d13.firebaseio.com",
+    "project_id": "fastrack-c4d13",
+    "storage_bucket": "fastrack-c4d13.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:661034144907:android:8f02e58b86a53c8f",
+        "android_client_info": {
+          "package_name": "com.example.shubhampatel.fastrack"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "661034144907-vkg1nr1ilmsuvmnq3909qcb7ck4eb6kn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.shubhampatel.fastrack",
+            "certificate_hash": "92b93b275de7b094a7cdfeaae9d135754dfb8a3d"
+          }
+        },
+        {
+          "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBg_tUwnoZD6Clzxw-3QMy2Mipk6EDW9As"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "661034144907-3slth4a5gf151q557987li843179t7pm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

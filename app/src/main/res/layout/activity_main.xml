@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="15dp"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+
+
+    <Button
+        android:id="@+id/cretelist"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="CREATE LIST" />
+
+    <Button
+        android:id="@+id/remainingitem"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="REMAINING ITEMS" />
+
+    <Button
+        android:id="@+id/bills"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="BILLS" />
+
+    <Button
+        android:id="@+id/note"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="NOTES" />
+
+    <Button
+        android:id="@+id/profile"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="MY PROFILE" />
+
+    <Button
+        android:id="@+id/shop"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="LETS SHOP" />
+
+    <Button
+        android:id="@+id/remove"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="DEACTIVATE" />
+
+    <Button
+        android:id="@+id/sign_out"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="SIGN OUT" />
+
+</LinearLayout>
+
+
