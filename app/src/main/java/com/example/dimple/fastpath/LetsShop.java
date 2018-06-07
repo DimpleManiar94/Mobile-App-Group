@@ -83,6 +83,9 @@ public class LetsShop extends AppCompatActivity {
                             if(data.child("listName").getValue(String.class).equals(listName)){
 
                                 for(DataSnapshot list: data.child("listItems").getChildren()){
+                                    if (innerList == null) {
+                                        innerList = new ArrayList<>();
+                                    }
                                     innerList.add(list.child("item").getValue(String.class));
                                 }
                             }

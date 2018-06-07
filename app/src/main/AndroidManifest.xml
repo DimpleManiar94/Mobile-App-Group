@@ -35,6 +35,7 @@
         <activity android:name=".Mylist"/>
         <activity android:name=".CreateListFromDB"/>
         <activity android:name=".LetsShop"/>
+        <activity android:name=".ListPage"/>
     </application>
 
 </manifest>
