@@ -33,6 +33,8 @@
         <activity android:name=".Recognizer" />
         <activity android:name=".Howtocreatelist" />
         <activity android:name=".Mylist"/>
+        <activity android:name=".CreateListFromDB"/>
+        <activity android:name=".LetsShop"/>
     </application>
 
 </manifest>

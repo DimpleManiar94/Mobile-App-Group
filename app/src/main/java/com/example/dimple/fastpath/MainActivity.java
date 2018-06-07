@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
         letshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(MainActivity.this, Mylist.class);
+                Intent i = new Intent(MainActivity.this, LetsShop.class);
                 startActivity(i);
             }
         });
