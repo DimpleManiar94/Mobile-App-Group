@@ -35,7 +35,9 @@ public class Howtocreatelist extends AppCompatActivity {
         database.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(Howtocreatelist.this, "from data base", Toast.LENGTH_LONG).show();
+                Intent i_DB = new Intent(Howtocreatelist.this, CreateListFromDB.class);
+                startActivity(i_DB);
+                //Toast.makeText(Howtocreatelist.this, "from data base", Toast.LENGTH_LONG).show();
             }
         });
 
