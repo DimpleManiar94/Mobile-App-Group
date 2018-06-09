@@ -84,10 +84,13 @@ public class LetsShop extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for(DataSnapshot data: dataSnapshot.getChildren()){
-                                if(data.child("listName").getValue(String.class) == listName){
+                                if(data.child("listName").getValue(String.class).equals(listName)){
                                     data.getRef().removeValue();
                                 }
                             }
+                            // Remove this listener since we only want to get this
+                            // item once
+                            listQuery.removeEventListener(this);
                         }
 
                         @Override
@@ -113,6 +116,9 @@ public class LetsShop extends AppCompatActivity {
                             Intent intent = new Intent(LetsShop.this, ListPage.class);
                             intent.putExtra("list", innerList);
                             startActivity(intent);
+
+                            // Remove this listener because we only need this item once
+                            listQuery.removeEventListener(this);
                         }
 
                         @Override
