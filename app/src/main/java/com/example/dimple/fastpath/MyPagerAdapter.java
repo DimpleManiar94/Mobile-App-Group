@@ -10,6 +10,7 @@ import java.util.ArrayList;
 public class MyPagerAdapter extends FragmentPagerAdapter {
 
     ArrayList<Fragment> fragments = new ArrayList<>();
+    ArrayList<String> titles = new ArrayList<>();
 
     public MyPagerAdapter(FragmentManager fm) {
         super(fm);
@@ -25,14 +26,14 @@ public class MyPagerAdapter extends FragmentPagerAdapter {
         return fragments.size();
     }
 
-    public void addFragment(Fragment f){
+    public void addFragment(Fragment f, String title){
         fragments.add(f);
+        titles.add(title);
     }
 
     @Nullable
     @Override
     public CharSequence getPageTitle(int position) {
-        String title = fragments.get(position).toString();
-        return title.toString();
+        return titles.get(position);
     }
 }

@@ -31,8 +31,14 @@ public class TabActivityFragment extends Fragment {
     private Query firebaseQuery;
     private ListView fragmentListView;
 
-    public TabActivityFragment(String productType){
-        this.productType = productType;
+    private static final String PRODUCT_TYPE = "productType";
+
+    public static TabActivityFragment getInstance(String productType){
+        Bundle bundle = new Bundle();
+        bundle.putString(PRODUCT_TYPE, productType);
+        TabActivityFragment fragment = new TabActivityFragment();
+        fragment.setArguments(bundle);
+        return fragment;
     }
 
     @Nullable
@@ -41,6 +47,7 @@ public class TabActivityFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.tab_activity_fragment, container, false);
         fragmentListView = (ListView) rootView.findViewById(R.id.fragmentListView);
         context = inflater.getContext();
+        productType = getArguments().getString(PRODUCT_TYPE);
         setUpDatabase();
         setUpItemListener();
         return rootView;
