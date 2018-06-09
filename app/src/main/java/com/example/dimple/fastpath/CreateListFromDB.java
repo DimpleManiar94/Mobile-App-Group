@@ -76,7 +76,7 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
 
         mViewPager = (ViewPager) findViewById(R.id.mViewPager_ID);
         makeFragments();
-       // this.addPages();
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -140,23 +140,6 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
         adapter.notifyDataSetChanged();
 
     }
-
-    /*private void addPages()
-    {
-        MyPagerAdapter pagerAdapter=new MyPagerAdapter(this.getSupportFragmentManager());
-        pagerAdapter.addFragment(new FruitsFragment());
-        pagerAdapter.addFragment(new VegetablesFragment());
-        pagerAdapter.addFragment(new FrozenFragment());
-        pagerAdapter.addFragment(new OrganicsFragment());
-        pagerAdapter.addFragment(new FastfoodFragment());
-        pagerAdapter.addFragment(new SnacksFragment());
-        pagerAdapter.addFragment(new DryfruitsFragment());
-        pagerAdapter.addFragment(new SpicesFragment());
-
-
-        //SET ADAPTER TO VP
-        mViewPager.setAdapter(pagerAdapter);
-    }*/
 
 
     private void makeFragments(){
