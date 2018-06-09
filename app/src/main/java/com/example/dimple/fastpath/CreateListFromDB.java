@@ -1,9 +1,12 @@
 package com.example.dimple.fastpath;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -21,6 +24,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,11 +34,15 @@ import android.widget.TextView;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnTabSelectedListener {
 
@@ -67,7 +75,8 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
 
 
         mViewPager = (ViewPager) findViewById(R.id.mViewPager_ID);
-        this.addPages();
+        makeFragments();
+       // this.addPages();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -123,6 +132,7 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
             }
         });
 
+
     }
 
     public void getDataFromFragment(String item){
@@ -131,7 +141,7 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
 
     }
 
-    private void addPages()
+    /*private void addPages()
     {
         MyPagerAdapter pagerAdapter=new MyPagerAdapter(this.getSupportFragmentManager());
         pagerAdapter.addFragment(new FruitsFragment());
@@ -146,10 +156,34 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
 
         //SET ADAPTER TO VP
         mViewPager.setAdapter(pagerAdapter);
+    }*/
+
+
+    private void makeFragments(){
+        database = FirebaseDatabase.getInstance();
+        firebaseQuery = database.getReference("producttype").orderByChild("producttypename");
+        final MyPagerAdapter pagerAdapter = new MyPagerAdapter(this.getSupportFragmentManager());
+
+        firebaseQuery.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<String> productTypes = new ArrayList<String>();
+                for(DataSnapshot data: dataSnapshot.getChildren()){
+                    productTypes.add(data.child("producttypename").getValue(String.class));
+                }
+
+                for(String type: productTypes){
+                    TabActivityFragment fragment = new TabActivityFragment(type);
+                    pagerAdapter.addFragment(fragment);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
-
-
-
 
 
     @Override
@@ -167,6 +201,8 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
     public void onTabReselected(TabLayout.Tab tab) {
 
     }
+
+
 
 }
 

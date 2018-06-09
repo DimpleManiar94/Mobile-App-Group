@@ -23,7 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressLint("ValidFragment")
-public class TbActivityFragment extends Fragment {
+public class TabActivityFragment extends Fragment {
 
     private String productType;
     private Context context;
@@ -31,7 +31,7 @@ public class TbActivityFragment extends Fragment {
     private Query firebaseQuery;
     private ListView fragmentListView;
 
-    public TbActivityFragment(String productType){
+    public TabActivityFragment(String productType){
         this.productType = productType;
     }
 
