@@ -3,6 +3,7 @@ package com.example.dimple.fastpath;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
@@ -31,6 +32,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import java.util.ArrayList;
 
@@ -44,6 +46,9 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
     private MyCustomAdapter adapter;
     private Button btn_shop;
     private Context context;
+    private FirebaseDatabase database;
+    private Query firebaseQuery;
+    private ArrayList<String> productType;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -102,12 +107,15 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
                             list.getListItems().add(item1);
 
                         }
+                        listItems.clear();
                         FirebaseDatabase database = FirebaseDatabase.getInstance();
 
 
                         DatabaseReference myRef = database.getReference("userList").push();
 
                         myRef.setValue(list);
+                        Intent i = new Intent(CreateListFromDB.this, MainActivity.class);
+                        startActivity(i);
                     }
                 });
 

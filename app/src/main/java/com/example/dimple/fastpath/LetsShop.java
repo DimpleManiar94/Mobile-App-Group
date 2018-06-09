@@ -30,7 +30,7 @@ public class LetsShop extends AppCompatActivity {
     private ArrayList<String> lists;
     Query listQuery;
     String listName;
-    ArrayList<String> innerList;
+    ArrayList<String> innerList = new ArrayList<String>();;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class LetsShop extends AppCompatActivity {
         listQuery.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                lists.clear();
                 for(DataSnapshot data: dataSnapshot.getChildren()){
                     lists.add(data.child("listName").getValue(String.class));
                 }
@@ -75,31 +76,51 @@ public class LetsShop extends AppCompatActivity {
         listofLists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                listName = lists.get(position);
-                listQuery.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot data: dataSnapshot.getChildren()){
-                            if(data.child("listName").getValue(String.class).equals(listName)){
-
-                                for(DataSnapshot list: data.child("listItems").getChildren()){
-                                    if (innerList == null) {
-                                        innerList = new ArrayList<>();
-                                    }
-                                    innerList.add(list.child("item").getValue(String.class));
+                if(view.getId() == R.id.delete_btn){
+                    listName = lists.get(position);
+                    lists.remove(position); //or some other task
+                    adapter.notifyDataSetChanged();
+                    listQuery.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot data: dataSnapshot.getChildren()){
+                                if(data.child("listName").getValue(String.class) == listName){
+                                    data.getRef().removeValue();
                                 }
                             }
                         }
-                        Intent intent = new Intent(LetsShop.this, ListPage.class);
-                        intent.putExtra("list", innerList);
-                        startActivity(intent);
-                    }
 
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                    }
-                });
+                        }
+                    });
+                }
+                else {
+                    listName = lists.get(position);
+                    listQuery.addValueEventListener(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot data: dataSnapshot.getChildren()){
+                                if(data.child("listName").getValue(String.class).equals(listName)){
+                                    innerList.clear();
+                                    for(DataSnapshot list: data.child("listItems").getChildren()){
+
+                                        innerList.add(list.child("item").getValue(String.class));
+                                    }
+                                }
+                            }
+                            Intent intent = new Intent(LetsShop.this, ListPage.class);
+                            intent.putExtra("list", innerList);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
             }
         });
 
