@@ -173,9 +173,11 @@ public class CreateListFromDB extends AppCompatActivity implements TabLayout.OnT
                 }
 
                 for(String type: productTypes){
-                    TabActivityFragment fragment = new TabActivityFragment(type);
-                    pagerAdapter.addFragment(fragment);
+                    TabActivityFragment fragment = TabActivityFragment.getInstance(type);
+                    pagerAdapter.addFragment(fragment, type);
                 }
+
+                mViewPager.setAdapter(pagerAdapter);
             }
 
             @Override
