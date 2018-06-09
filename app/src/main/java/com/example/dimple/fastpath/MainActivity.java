@@ -57,6 +57,14 @@ public class MainActivity extends AppCompatActivity {
         btnRemoveUser = (Button) findViewById(R.id.remove);
         signOut = (Button) findViewById(R.id.sign_out);
 
+        remaining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, RemainingLists.class);
+                startActivity(i);
+            }
+        });
+
 
         btnRemoveUser.setOnClickListener(new View.OnClickListener() {
             @Override

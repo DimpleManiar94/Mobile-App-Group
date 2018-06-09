@@ -23,8 +23,6 @@ import java.util.ArrayList;
 public class LetsShopAdapter extends BaseAdapter implements ListAdapter {
     private ArrayList<String> list = new ArrayList<String>();
     private Context context;
-    private FirebaseDatabase FBdatabase;
-    Query deleteQuery;
 
 
     public LetsShopAdapter(ArrayList<String> list, Context context) {
