@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,7 +49,7 @@ public class LetsShopAdapter extends BaseAdapter implements ListAdapter {
 
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         View view = convertView;
         if (view == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -62,30 +63,10 @@ public class LetsShopAdapter extends BaseAdapter implements ListAdapter {
         //Handle buttons and add onClickListeners
         Button deleteBtn = (Button)view.findViewById(R.id.delete_btn);
 
-        deleteBtn.setOnClickListener(new View.OnClickListener(){
+        deleteBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String listName = list.get(position);
-                list.remove(position); //or some other task
-                notifyDataSetChanged();
-                String userID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                FBdatabase = FirebaseDatabase.getInstance();
-                deleteQuery = FBdatabase.getReference("userList").orderByChild("userID").equalTo(userID);
-                deleteQuery.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for(DataSnapshot data: dataSnapshot.getChildren()){
-                            if(data.child("listName").getValue(String.class) == listName){
-                                data.getRef().removeValue();
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
+                ((ListView)parent).performItemClick(v, position, 0);
             }
         });
 
