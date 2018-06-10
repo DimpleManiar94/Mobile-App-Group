@@ -11,17 +11,26 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp">
 
+            <TextView
+                android:id="@+id/listName"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_alignParentTop="true"
+                android:layout_margin="30dp"
+                android:text="List"
+                />
+
             <ListView
+                android:layout_below="@+id/listName"
                 android:id="@+id/mybilllist"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="8dp"
-                android:layout_marginTop="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginBottom="100dp"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints,UnknownId" />
 
             <Button
                 android:id="@+id/payment"

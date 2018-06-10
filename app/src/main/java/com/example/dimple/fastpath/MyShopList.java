@@ -65,15 +65,18 @@ public class MyShopList extends AppCompatActivity {
                 DatabaseReference myRef = database.getReference("remainingList").push();
                 myRef.setValue(remainingList);
 
-
+                ArrayList<String> checkedItems = new ArrayList<String>();
                 for (int i = 0; i < CustomAdapter.modelArrayList.size(); i++){
                     if(CustomAdapter.modelArrayList.get(i).getSelected()) {
-                        Intent i1 = new Intent(MyShopList.this, MainActivity.class);
-                        startActivity(i1);
+                        checkedItems.add(CustomAdapter.modelArrayList.get(i).getitems());
 
                        // tv.setText(tv.getText() + " " + CustomAdapter.modelArrayList.get(i).getitems());
                     }
                 }
+                Intent i1 = new Intent(MyShopList.this, MyBill.class);
+                i1.putStringArrayListExtra("bill", checkedItems);
+                i1.putExtra("listName", listName);
+                startActivity(i1);
             }
         });
 
