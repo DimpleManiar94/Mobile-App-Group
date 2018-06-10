@@ -5,8 +5,9 @@ import java.util.Date;
 
 public class Bill {
     private String listName;
-    private ArrayList<ListItem> listItems;
+    private ArrayList<String> listItems;
     private String date;
+    private String userID;
 
     public Bill(){
 
@@ -17,7 +18,7 @@ public class Bill {
         this.date = date;
     }
 
-    public void setListItems(ArrayList<ListItem> listItems) {
+    public void setListItems(ArrayList<String> listItems) {
         this.listItems = listItems;
     }
 
@@ -37,7 +38,15 @@ public class Bill {
         this.listName = listName;
     }
 
-    public ArrayList<ListItem> getListItems() {
+    public ArrayList<String> getListItems() {
         return listItems;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
+
+    public String getUserID() {
+        return userID;
     }
 }

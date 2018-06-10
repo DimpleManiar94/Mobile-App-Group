@@ -63,7 +63,10 @@ public class MyShopList extends AppCompatActivity {
                 }
                 FirebaseDatabase database = FirebaseDatabase.getInstance();
                 DatabaseReference myRef = database.getReference("remainingList").push();
-                myRef.setValue(remainingList);
+
+                if(!remainingList.getListItems().isEmpty()){
+                    myRef.setValue(remainingList);
+                }
 
                 ArrayList<String> checkedItems = new ArrayList<String>();
                 for (int i = 0; i < CustomAdapter.modelArrayList.size(); i++){

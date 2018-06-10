@@ -48,6 +48,8 @@
         <activity android:name=".MyBill"/>
         <activity android:name=".RemainingLists"/>
         <activity android:name=".RemainingListPage"/>
+        <activity android:name=".BillProducts"/>
+        <activity android:name=".BillHistory"/>
     </application>
 
 </manifest>
